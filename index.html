@@ -73,16 +73,29 @@
 </head>
 <body>
   <!-- Background Music -->
-  <audio autoplay loop hidden>
+    <!-- Background Music -->
+  <audio id="bgm" autoplay loop muted hidden>
     <source src="Hindia - everything u are [lB8ASupNtlw].mp3" type="audio/mpeg">
   </audio>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const bgm = document.querySelector('audio');
-      const tryPlay = () => { bgm.play().catch(() => {}); document.removeEventListener('click', tryPlay); document.removeEventListener('scroll', tryPlay); };
-      document.addEventListener('click', tryPlay);
-      document.addEventListener('scroll', tryPlay);
+      const bgm = document.getElementById('bgm');
+
+      const enableSound = () => {
+        bgm.muted = false;    // hilangkan mute
+        bgm.play().catch(() => {});
+        document.removeEventListener('click', enableSound);
+        document.removeEventListener('scroll', enableSound);
+        document.removeEventListener('touchstart', enableSound);
+      };
+
+      // aktifkan saat user interaksi
+      document.addEventListener('click', enableSound);
+      document.addEventListener('scroll', enableSound);
+      document.addEventListener('touchstart', enableSound);
     });
+  </script>
+
   </script>
 
   <header>
@@ -139,16 +152,22 @@
     <h2>Video Memories</h2>
     <div class="video-container" data-animate>
       <video controls autoplay loop muted>
-        <source src="Video WhatsApp 2025-08-23 pukul 22.04.32_561123dd.mp4" type="video/mp4">
+        <source src="Video WhatsApp 2025-08-22 pukul 16.54.43_6efbb8fa.mp4" type="video/mp4">
       </video>
       <video controls autoplay loop muted>
-        <source src="Video WhatsApp 2025-08-23 pukul 22.03.56_c59c1d53.mp4" type="video/mp4">
+        <source src="Video WhatsApp 2025-08-22 pukul 16.54.44_4ce99175.mp4" type="video/mp4">
       </video>
       <video controls autoplay loop muted>
         <source src="Video WhatsApp 2025-08-22 pukul 16.54.44_25e10803.mp4" type="video/mp4">
       </video>
       <video controls autoplay loop muted>
         <source src="Video WhatsApp 2025-08-22 pukul 16.54.46_ed9d50fa.mp4" type="video/mp4">
+      </video>
+      <video controls autoplay loop muted>
+        <source src="Video WhatsApp 2025-08-23 pukul 22.03.56_c59c1d53.mp4" type="video/mp4">
+      </video>
+      <video controls autoplay loop muted>
+        <source src="Video WhatsApp 2025-08-23 pukul 22.04.32_561123dd.mp4" type="video/mp4">
       </video>
     </div>
   </section>
@@ -176,7 +195,7 @@
   </section>
 
   <footer>
-    <img src="ppngwing.com (1).png" alt="Stitch Cute" class="stitch-foot">
+    <img src="pngwing.com (1).png" alt="Stitch Cute" class="stitch-foot">
     <p>Inget kata Vior, "Icimoy!!!, Istri cantik dan gemoyyy"</p>
   </footer>
 
@@ -202,5 +221,3 @@
   </script>
 </body>
 </html>
-
-
