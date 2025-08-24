@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Memories</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; background: #eaf6ff; color: #1a2a6c; line-height: 1.6; }
+
+    header {
+      height: 100vh;
+      background: linear-gradient(rgba(20,93,160,0.6), rgba(20,93,160,0.6)), url('stitch-bg.jpg') center/cover;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      color: white; text-align: center; padding: 20px; position: relative;
+    }
+    header h1 { font-family: 'Pacifico', cursive; font-size: 3rem; margin-bottom: 10px; }
+    header p { font-size: 1.2rem; max-width: 600px; }
+    header img.stitch {
+      position: absolute; bottom: 10px; right: 20px; width: 200px;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+
+    section { padding: 60px 20px; text-align: center; }
+    section h2 { font-family: 'Pacifico', cursive; color: #145da0; margin-bottom: 30px; font-size: 2rem; }
+
+    /* Slideshow */
+    .slideshow-container {
+      position: relative; max-width: 800px; margin: auto; overflow: hidden;
+      border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    .slideshow-container img {
+      width: 100%; height: 500px; object-fit: cover; display: none;
+      border-radius: 20px;
+    }
+    .slideshow-container img.active { display: block; animation: fade 1.5s; }
+    @keyframes fade { from {opacity:0.4;} to {opacity:1;} }
+
+    .video-container {
+      display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+      gap: 20px;
+    }
+    .video-container video {
+      width: 100%; height: 300px; object-fit: cover;
+      border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    .timeline { max-width: 800px; margin: auto; position: relative; }
+    .timeline::before {
+      content:''; position:absolute; top:0; left:50%; transform:translateX(-50%);
+      width:4px; height:100%; background:#145da0;
+    }
+    .timeline-item {
+      background:#fff; padding:20px; border-radius:20px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1); width:45%; position:relative; margin:20px 0;
+    }
+    .timeline-item:nth-child(odd){ left:0; }
+    .timeline-item:nth-child(even){ left:55%; }
+    .timeline-item h3 { color:#145da0; margin-bottom:10px; }
+
+    footer {
+      background:#145da0; color:white; text-align:center;
+      padding:20px; font-size:0.9rem; position:relative;
+    }
+    footer img.stitch-foot { position:absolute; left:20px; bottom:5px; width:120px; }
+
+    /* Animation on scroll */
+    [data-animate]{ opacity:0; transform:translateY(30px); transition:all 0.8s ease; }
+    [data-animate].visible{ opacity:1; transform:translateY(0); }
+  </style>
+</head>
+<body>
+  <!-- Background Music -->
+  <audio autoplay loop hidden>
+    <source src="Hindia - everything u are [lB8ASupNtlw].mp3" type="audio/mpeg">
+  </audio>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const bgm = document.querySelector('audio');
+      const tryPlay = () => { bgm.play().catch(() => {}); document.removeEventListener('click', tryPlay); document.removeEventListener('scroll', tryPlay); };
+      document.addEventListener('click', tryPlay);
+      document.addEventListener('scroll', tryPlay);
+    });
+  </script>
+
+  <header>
+    <h1>Kenangan Kita</h1>
+    <p>Webset ini berisi hanya ada kita saja.....</p>
+    <img src="pngwing.com (2).png" alt="Stitch" class="stitch">
+  </header>
+
+  <section>
+    <h2>Photo Memories</h2>
+    <div class="slideshow-container" data-animate>
+      <img src="Gambar WhatsApp 2025-08-23 pukul 22.04.30_7d55720b.jpg" class="active" alt="Memory 1">
+      <img src="Gambar WhatsApp 2025-08-23 pukul 22.04.29_c3c573dd.jpg" alt="Memory 2">
+      <img src="Gambar WhatsApp 2025-08-23 pukul 22.04.23_f8954c27.jpg" alt="Memory 3">
+      <img src="Gambar WhatsApp 2025-08-23 pukul 22.04.22_ac67dca6.jpg" alt="Memory 4">
+      <img src="Gambar WhatsApp 2025-08-23 pukul 22.04.05_fd413f30.jpg" alt="Memory 1">
+      <img src="Gambar WhatsApp 2025-08-23 pukul 22.04.04_ff46078d.jpg" alt="Memory 2">
+      <img src="Gambar WhatsApp 2025-08-23 pukul 22.04.04_e7039d65.jpg" alt="Memory 3">
+      <img src="Gambar WhatsApp 2025-08-23 pukul 22.04.03_d33549ea.jpg" alt="Memory 4">
+      <img src="Gambar WhatsApp 2025-08-23 pukul 22.04.02_a401cb90.jpg" alt="Memory 1">
+      <img src="Gambar WhatsApp 2025-08-23 pukul 22.04.01_5c0f38fb.jpg" alt="Memory 2">
+      <img src="Gambar WhatsApp 2025-08-23 pukul 22.03.58_18989feb.jpg" alt="Memory 3">
+      <img src="Gambar WhatsApp 2025-08-23 pukul 22.03.56_a7d34848.jpg" alt="Memory 4">
+      <img src="Gambar WhatsApp 2025-08-23 pukul 22.03.55_1396131f.jpg" alt="Memory 1">
+      <img src="Gambar WhatsApp 2025-08-23 pukul 22.03.54_ae74bc5c.jpg" alt="Memory 2">
+      <img src="Gambar WhatsApp 2025-08-23 pukul 22.03.54_a027350d.jpg" alt="Memory 3">
+      <img src="Gambar WhatsApp 2025-08-23 pukul 22.03.54_39985890.jpg" alt="Memory 4">
+      <img src="Gambar WhatsApp 2025-08-23 pukul 22.03.53_f3866cd9.jpg" alt="Memory 1">
+      <img src="Gambar WhatsApp 2025-08-23 pukul 22.03.52_cdd5a684.jpg" alt="Memory 2">
+      <img src="Gambar WhatsApp 2025-08-23 pukul 22.03.52_a66f3eea.jpg" alt="Memory 3">
+      <img src="Gambar WhatsApp 2025-08-23 pukul 22.03.52_23c17d59.jpg" alt="Memory 4">
+      <img src="Gambar WhatsApp 2025-08-23 pukul 22.03.25_bb9c270e.jpg" alt="Memory 1">
+      <img src="Gambar WhatsApp 2025-08-23 pukul 22.03.25_581c39aa.jpg" alt="Memory 2">
+      <img src="Gambar WhatsApp 2025-08-23 pukul 22.02.48_8003a874.jpg" alt="Memory 3">
+      <img src="Gambar WhatsApp 2025-08-23 pukul 22.02.39_6344cd3f.jpg" alt="Memory 4">
+      <img src="Gambar WhatsApp 2025-08-23 pukul 22.02.37_02a228c2.jpg" alt="Memory 1">
+      <img src="Gambar WhatsApp 2025-08-23 pukul 22.02.34_55fa8058.jpg" alt="Memory 2">
+      <img src="Gambar WhatsApp 2025-08-23 pukul 22.02.32_5e73bf94.jpg" alt="Memory 3">
+      <img src="Gambar WhatsApp 2025-08-23 pukul 22.02.30_b8f247da.jpg" alt="Memory 4">
+      <img src="Gambar WhatsApp 2025-08-23 pukul 22.01.53_41ae03cf.jpg" alt="Memory 1">
+      <img src="Gambar WhatsApp 2025-08-23 pukul 22.01.47_1109efd1.jpg" alt="Memory 2">
+      <img src="Gambar WhatsApp 2025-08-23 pukul 22.01.43_4649e686.jpg" alt="Memory 3">
+      <img src="Gambar WhatsApp 2025-08-23 pukul 22.01.42_2a5a63e7.jpg" alt="Memory 4">
+      <img src="Gambar WhatsApp 2025-08-22 pukul 16.54.47_dd929bd7.jpg" alt="Memory 1">
+      <img src="Gambar WhatsApp 2025-08-22 pukul 16.54.47_794d3b1d.jpg" alt="Memory 2">
+      <img src="Gambar WhatsApp 2025-08-22 pukul 16.54.46_098ca0dd.jpg" alt="Memory 3">
+      <img src="Gambar WhatsApp 2025-08-22 pukul 16.54.45_0cbc97c5.jpg" alt="Memory 4">
+      <img src="Gambar WhatsApp 2025-08-22 pukul 16.54.22_b3104ff0.jpg" alt="Memory 1">
+      <img src="Gambar WhatsApp 2025-08-22 pukul 16.54.21_d2f86f31.jpg" alt="Memory 2">
+    </div>
+  </section>
+
+  <section>
+    <h2>Video Memories</h2>
+    <div class="video-container" data-animate>
+      <video controls autoplay loop muted>
+        <source src="Video WhatsApp 2025-08-22 pukul 16.54.43_6efbb8fa.mp4" type="video/mp4">
+      </video>
+      <video controls autoplay loop muted>
+        <source src="Video WhatsApp 2025-08-22 pukul 16.54.44_4ce99175.mp4" type="video/mp4">
+      </video>
+      <video controls autoplay loop muted>
+        <source src="Video WhatsApp 2025-08-22 pukul 16.54.44_25e10803.mp4" type="video/mp4">
+      </video>
+    </div>
+  </section>
+
+  <section>
+    <h2>Untuk Yang Akan Datang</h2>
+    <div class="timeline">
+      <div class="timeline-item" data-animate>
+        <h3>hari dimana kita pergi main mungkin?</h3>
+        <p>momen pas kita main</p>
+      </div>
+      <div class="timeline-item" data-animate>
+        <h3>sama aja cuma yang selanjutnya</h3>
+        <p>berisi foto foto saat main</p>
+      </div>
+      <div class="timeline-item" data-animate>
+        <h3>mungkin hari berkenang untuk kita?</h3>
+        <p>isi foto dan video</p>
+      </div>
+      <div class="timeline-item" data-animate>
+        <h3>sama sih cuma lebih lama hehe</h3>
+        <p>berisi kenangan kita....</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <img src="pngwing.com (1).png" alt="Stitch Cute" class="stitch-foot">
+    <p>Inget kata Vinchent, "dua!!, Sama kamu satu. hehe</p>
+  </footer>
+
+  <script>
+    // scroll animation
+    const items = document.querySelectorAll('[data-animate]');
+    const observer = new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){ entry.target.classList.add('visible'); }
+      });
+    },{threshold:0.2});
+    items.forEach(item=>observer.observe(item));
+
+    // slideshow
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".slideshow-container img");
+    function showSlides(){
+      slides.forEach(s=>s.classList.remove("active"));
+      slideIndex = (slideIndex+1)%slides.length;
+      slides[slideIndex].classList.add("active");
+    }
+    setInterval(showSlides,3000);
+  </script>
+</body>
+</html>
